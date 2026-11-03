@@ -1,5 +1,7 @@
 # Expense Splitter
 
+**[Open the demo →](https://antonidashaci.github.io/expense-splitter/)**
+
 Split a shared bill and get the **fewest transfers that settle it**. No account,
 no server, no build step — three files and `localStorage`.
 
