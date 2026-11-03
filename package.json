@@ -1,0 +1,25 @@
+{
+  "name": "expense-splitter",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Split a shared bill and get the fewest transfers that settle it. Local-first, no build step.",
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "start": "python -m http.server 8000"
+  },
+  "keywords": [
+    "expense",
+    "split",
+    "bill",
+    "settle-up",
+    "local-first",
+    "vanilla-js"
+  ],
+  "author": "antonidashaci",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antonidashaci/expense-splitter.git"
+  }
+}

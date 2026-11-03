@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Expense Splitter</title>
+<meta name="description" content="Split a shared bill and see the fewest transfers that settle it. Works offline, nothing leaves your browser.">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='13' font-size='13'>&#129534;</text></svg>">
+</head>
+<body>
+<header>
+  <h1>Expense Splitter</h1>
+  <p>Who paid what, and the fewest transfers that settle it. Everything stays in this browser.</p>
+</header>
+
+<main>
+  <section aria-labelledby="people-heading">
+    <h2 id="people-heading">People</h2>
+    <form id="person-form" autocomplete="off">
+      <label class="sr-only" for="person-name">Name</label>
+      <input id="person-name" name="name" placeholder="Name" maxlength="40" required>
+      <button type="submit">Add person</button>
+    </form>
+    <ul id="people" class="chips"></ul>
+  </section>
+
+  <section aria-labelledby="expense-heading">
+    <h2 id="expense-heading">Expenses</h2>
+    <form id="expense-form" autocomplete="off">
+      <div class="row">
+        <label>Description
+          <input name="description" placeholder="Dinner" maxlength="80" required>
+        </label>
+        <label>Amount
+          <input name="amount" inputmode="decimal" placeholder="347,65" required>
+        </label>
+        <label>Paid by
+          <select name="paidBy" required></select>
+        </label>
+      </div>
+      <fieldset>
+        <legend>Shared by</legend>
+        <div id="shared-by" class="chips"></div>
+      </fieldset>
+      <button type="submit">Add expense</button>
+      <p id="expense-error" class="error" role="alert" hidden></p>
+    </form>
+    <ul id="expenses" class="list"></ul>
+  </section>
+
+  <section aria-labelledby="settle-heading">
+    <h2 id="settle-heading">Settle up</h2>
+    <table id="summary">
+      <caption class="sr-only">What each person paid and where they stand</caption>
+      <thead>
+        <tr><th scope="col">Person</th><th scope="col">Paid</th><th scope="col">Share</th><th scope="col">Balance</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <ol id="transfers" class="list"></ol>
+    <p id="empty" class="muted">Add a couple of people and an expense.</p>
+  </section>
+
+  <section class="settings">
+    <label>Currency
+      <select id="currency">
+        <option value="TRY" selected>TRY — Turkish lira</option>
+        <option value="EUR">EUR — euro</option>
+        <option value="USD">USD — US dollar</option>
+        <option value="GBP">GBP — pound sterling</option>
+      </select>
+    </label>
+    <button id="export" type="button">Export JSON</button>
+    <button id="reset" type="button" class="danger">Clear everything</button>
+  </section>
+</main>
+
+<footer>
+  <p>No account, no server, no analytics. <a href="https://github.com/antonidashaci/expense-splitter">Source</a>.</p>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
